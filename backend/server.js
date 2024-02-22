@@ -5,18 +5,19 @@ import cookieParser from "cookie-parser";
 import userRoutes from "./routes/userRoutes.js"; 
 import adminRoutes from "./routes/adminRoutes.js";  
 import attendanceRoutes from "./routes/attendanceRoutes.js";
+import  path from  'path';
 
 const app = express();
 dotenv.config();
 
 connectDB();
 
-app.use(express.json({ extended: false })); 
 
 const PORT = process.env.PORT || 5000;
 
 // Middlewares
-app.use("/", express.static("../frontend/dist"));
+app.use("/", express.static("../frontend/build"));
+app.get('*', (req,res) => res.sendFile(path.resolve(__dirname, 'frontend', 'build','index.html')));
 app.use(express.json({ limit: "50mb" })); // To parse JSON data in the req.body
 app.use(express.urlencoded({ extended: true })); // To parse form data in the req.body
 app.use(cookieParser());
