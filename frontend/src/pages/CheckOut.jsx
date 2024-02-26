@@ -30,7 +30,7 @@ const CheckOut = () => {
   useEffect(() => {
         const fetchUsers = async () => {
             try {
-            const res = await fetch('/api/users/profile');
+            const res = await fetch(`${window.location.origin}/api/users/profile`);
             const data = await res.json();
             setUsers(data);
             if (data.error) {
@@ -49,7 +49,7 @@ const CheckOut = () => {
     e.preventDefault();
 
     try {
-      const res = await fetch(`api/attendance/checkout`, {
+      const res = await fetch(`${window.location.origin}/api/attendance/checkout`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

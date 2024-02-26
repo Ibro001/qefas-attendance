@@ -14,7 +14,7 @@ const Admin = () => {
     useEffect(() => {
         const fetchAdmin = async () => {
             try {
-            const res = await fetch('/api/admin/profile');
+            const res = await fetch(`${window.location.origin}/api/admin/profile`);
             const data = await res.json();
             setAdmins(data);
             if (data.error) {

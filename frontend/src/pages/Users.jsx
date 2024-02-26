@@ -16,7 +16,7 @@ const Users = () => {
     useEffect(() => {
         const fetchUsers = async () => {
             try {
-            const res = await fetch('/api/users/profile');
+            const res = await fetch(`${window.location.origin}/api/users/profile`);
             const data = await res.json();
             setUsers(data);
             if (data.error) {
@@ -33,7 +33,7 @@ const Users = () => {
 
     const deleteUser = async (userId) => {
         try {
-			const res = await fetch(`/api/users/${userId}`, {
+			const res = await fetch(`${window.location.origin}/api/users/${userId}`, {
 				method: "DELETE",  
 			});
 			const data = await res.json();

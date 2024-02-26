@@ -20,7 +20,7 @@ const AdminLoginCard = () => {
 	const handleLogin = async () => {
 		setLoading(true);
 		try {
-			const res = await fetch("/api/admin/login", {
+			const res = await fetch(`${window.location.origin}/api/admin/login`, {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",

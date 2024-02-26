@@ -21,7 +21,7 @@ export default function SignupCard() {
 
 	const handleCreate = async () => {
 		try {
-			const res = await fetch("/api/admin/create", {
+			const res = await fetch(`${window.location.origin}/api/admin/create`, {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",

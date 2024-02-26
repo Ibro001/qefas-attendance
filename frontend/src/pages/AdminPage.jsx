@@ -17,7 +17,7 @@ const AdminPage = () => {
 		useEffect(() => {
         const fetchCheckInData = async () => {
             try {
-            const res = await fetch('/api/attendance/checkins');
+            const res = await fetch(`${window.location.origin}/api/attendance/checkins`);
             const data = await res.json();
             setCheckin(data);
             if (data.error) {
@@ -35,7 +35,7 @@ const AdminPage = () => {
 	useEffect(() => {
         const fetchCheckOutData = async () => {
             try {
-            const res = await fetch('/api/attendance/checkouts');
+            const res = await fetch(`${window.location.origin}/api/attendance/checkouts`);
             const data = await res.json();
             setCheckout(data);
             if (data.error) {
