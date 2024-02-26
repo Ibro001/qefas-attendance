@@ -29,8 +29,8 @@ app.use("/api/admin", adminRoutes);
 app.use("/api/attendance", attendanceRoutes);
 
 app.get("/", (req, res) => {
-  app.use(express.static(path.resolve(__dirname, "frontend/dist", "/frontend/dist")));
-  res.sendFile(path.resolve(__dirname, "frontend/dist", "/frontend/dist", "/frontend/dist/index.html"));
+  app.use(express.static(path.resolve(__dirname, "/frontend", "dist")));
+  res.sendFile(path.resolve(__dirname, "/frontend", "dist", "index.html"));
 });
 
 app.listen(PORT, () => console.log(`Server started at http://localhost:${PORT}`));
