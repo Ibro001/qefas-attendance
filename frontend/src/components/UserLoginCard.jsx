@@ -137,7 +137,11 @@ export default function LoginCard() {
 					</Box>
 				</Stack>
 			</Flex>
-			<Flex position={'absolute'} bottom={'10'} right={'40'}>
+			<Flex 
+				position={{ base: "relative", md: "absolute" }}
+				bottom={{ base: "auto", md: '' }}
+				right={{ base: "auto", md: '40' }}
+			>
 					<Link color={"blue.400"} as={RouterLink} to={'/admin'}>
 						<Button>
 							<MdOutlineSettings size={30} />
