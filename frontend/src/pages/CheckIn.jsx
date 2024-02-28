@@ -74,7 +74,9 @@ const CheckIn = () => {
     <>
       <Flex  mt={'3'} justifyContent={'space-between'}>
         <Link as={RouterLink} to={'/'}>
-          <TfiControlSkipBackward size={'20'} />
+          <Button size={'xs'}>
+            <TfiControlSkipBackward size={20} />
+          </Button>
         </Link>
         {user && (
           <Flex>
