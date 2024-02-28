@@ -8,10 +8,17 @@ import attendanceRoutes from "./routes/attendanceRoutes.js";
 import path from 'path';
 import cors from 'cors';
 
-const __dirname = path.resolve()
+const __dirname = path.resolve();
 const app = express();
+app.use(express.json());
+
 app.use(cors());
 dotenv.config();
+
+app.use(express.static(path.join(__dirname, "dist")));
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "dist/index.html"));
+})
 
 connectDB();
 
@@ -27,10 +34,5 @@ app.use(cookieParser());
 app.use("/api/users", userRoutes);
 app.use("/api/admin", adminRoutes); 
 app.use("/api/attendance", attendanceRoutes);
-
-app.get("/", (req, res) => {
-  app.use(express.static(path.resolve(__dirname, "./frontend", "dist")));
-  res.sendFile(path.resolve(__dirname, "./frontend", "dist", "index.html"));
-});
 
 app.listen(PORT, () => console.log(`Server started at http://localhost:${PORT}`));
